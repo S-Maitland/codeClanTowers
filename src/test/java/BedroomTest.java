@@ -48,6 +48,13 @@ public class BedroomTest {
     }
 
     @Test
+    public void canRemoveGuest(){
+        bedroom.addGuest(guest);
+        bedroom.removeGuest(guest);
+        assertEquals(0,bedroom.getGuestCount());
+    }
+
+    @Test
     public void getNightlyRate() {
         assertEquals(100, bedroom.getNightlyRate());
     }

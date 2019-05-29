@@ -34,6 +34,10 @@ public class Hotel {
         conferenceRoom.addGuest(guest);
     }
 
+    public void checkOutGuestFromBedroom(Guest guest, Bedroom bedroom){
+        bedroom.removeGuest(guest);
+    }
+
     public void addBedroom(Bedroom bedroom) {
         this.bedrooms.add(bedroom);
     }
@@ -45,6 +49,16 @@ public class Hotel {
     public Booking bookRoom(int nightsBooked, Bedroom bedroom){
          Booking booking = new Booking(nightsBooked, bedroom);
          return booking;
+    }
+
+    public ArrayList<Bedroom> getVacantBedrooms(){
+        ArrayList<Bedroom> vacantRooms = new ArrayList<Bedroom>();
+
+        for (Bedroom bedroom: this.bedrooms)
+            if(bedroom.getGuestCount() == 0){
+                vacantRooms.add(bedroom);
+            }
+        return vacantRooms;
     }
 
 }
