@@ -55,6 +55,13 @@ public class HotelTest {
     }
 
     @Test
+    public void cantCheckInAsBedroomHasGuestsAlready(){
+        hotel.checkInGuestToBedroom(guest, bedroom);
+        hotel.checkInGuestToBedroom(guest2, bedroom);
+        assertEquals(1, bedroom.getGuestCount());
+    }
+
+    @Test
     public void canCheckGuestOutOfBedroom(){
         hotel.checkInGuestToBedroom(guest, bedroom);
         hotel.checkOutGuestFromBedroom(guest, bedroom);

@@ -27,11 +27,15 @@ public class Hotel {
     }
 
     public void checkInGuestToBedroom(Guest guest, Bedroom bedroom){
-        bedroom.addGuest(guest);
+        if(bedroom.getGuestCount() == 0) {
+            bedroom.addGuest(guest);
+        }
     }
 
     public void checkInGuestToConferenceRoom(Guest guest, ConferenceRoom conferenceRoom){
-        conferenceRoom.addGuest(guest);
+        if(conferenceRoom.getGuestCount() == 0) {
+            conferenceRoom.addGuest(guest);
+        }
     }
 
     public void checkOutGuestFromBedroom(Guest guest, Bedroom bedroom){
